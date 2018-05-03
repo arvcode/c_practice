@@ -1,3 +1,43 @@
+/* Problem statement *
+
+Given an array of size n-1 and given that there are numbers from 1 to n with one missing, the missing number is to be found.
+
+Input:
+
+The first line of input contains an integer T denoting the number of test cases.
+The first line of each test case is N.
+The second line of each test case contains N-1 input C[i],numbers in array.
+
+Output:
+
+Print the missing number in array.
+
+Constraints:
+
+1 . T . 200
+1 . N . 1000
+1 . C[i] . 1000
+
+Example:
+
+Input
+2
+5
+1 2 3 5
+10
+1 2 3 4 5 6 7 8 10
+
+Output
+4
+9
+
+*/
+
+/* --NOTE -- 
+ * Input is modified */
+
+
+
 #include<stdio.h>
 
 int subarray(int **ptr, int,int);
@@ -31,13 +71,6 @@ int main() {
 		t_index++;			
 	}
 
-	for(t_index=0;t_index<num_test;t_index++) {
-		for(a_index=0;a_index<array_size;a_index++) {
-			printf("%d \t",ptr[t_index][a_index]);
-		}
-		
-		printf("\n");
-	}
 	free(ptr);
 }
 
