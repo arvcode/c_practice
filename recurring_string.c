@@ -21,6 +21,8 @@ char find_recurring_char (char * c) {
 	int index=0;
 	int index1=0;
 	int length=0;
+	char rec=0;
+	int distance=0;
 	while(c[index]!=0) {
 		index++;
 	}
@@ -29,7 +31,17 @@ char find_recurring_char (char * c) {
 	index1=1;
 	while (index <length) {
 		if (c[index]==c[index1]) {
-			return c[index];	
+			if (index==0) {
+				distance=index1-index;
+				rec=c[index];
+			} else {
+				if ((index1-index)<distance) {
+					distance=index1-index;
+					rec=c[index];
+				}
+			}		
+
+			//return c[index];	
 		} else {
 			if(index1<length) {
 				index1++;
@@ -39,7 +51,7 @@ char find_recurring_char (char * c) {
 		index++;
 		index1=index+1;
 	}
-	return 0;
+	return rec;
 }
 
 
