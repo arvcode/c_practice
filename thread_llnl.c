@@ -20,6 +20,10 @@
    pthread_cond_wait(cv,mutex) 
    pthread_cond_signal(cv)
    pthread_cond_broadcast(cv)
+   pthread_kill()
+   pthread_barrier_wait(&barrier);
+
+   pthread_barrier_t barrier=PTHREAD_BARRIER_INITIALIZER(count);
 */
 
 
@@ -31,6 +35,8 @@ void * signalling_thread(void *);
 
 pthread_mutex_t mutex=PTHREAD_MUTEX_INITIALIZER;
 pthread_cond_t  cv=PTHREAD_COND_INITIALIZER;
+int bcount=4;
+//pthread_barrier_t barrier=PTHREAD_BARRIER_INITIALIZER(bcount);
 
 pthread_mutexattr_t mutex_attr;
 int count=0;
@@ -115,6 +121,7 @@ void * thread_handler( void * attr) {
         b- in thread stack space
 	so attr is used as it has main task scope
 */
+//	pthread_barrier_wait(&barrier);
 	pthread_exit(attr);
 
 }
