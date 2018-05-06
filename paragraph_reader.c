@@ -35,7 +35,6 @@ int main () {
 		targ[index]=index;
 		pthread_create(&tid[index],NULL,thread_reader,(void*)&targ[index]);
 		index++;
-		usleep(1);
 	}
 
 
@@ -58,8 +57,8 @@ void * thread_reader (void *arg) {
 		while (count!=*index) {
 			pthread_cond_wait(&cv[*index],&mutex);
 		}
-	        printf("\nthread is %d count is %d \n",*index,count);	
-		while(flag!=1 && (c=fgetc(fp))!=EOF) {
+	        printf("\nthread is %d \n",*index);	
+		while((c=fgetc(fp))!=EOF) {
 			if (c!=' ' &&  c!='\n' && c!='\t') {
 				printf("[%c]",c);	
 			} else {	
