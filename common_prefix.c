@@ -28,7 +28,7 @@ ap
 #include<stdio.h>
 #include<stdlib.h>
 
-void prefix_finder(char**,int);
+char * prefix_finder(char**,int);
 
 
 
@@ -54,13 +54,13 @@ int main() {
 			scanf("%s",ptr[index_t][index_c]);
 			index_c++;
 		}
-		prefix_finder(ptr[index_t],index_c-1);
+		printf("%s",prefix_finder(ptr[index_t],index_c-1));
 		index_t++;
 	}	
 	
 }
 
-void prefix_finder(char **ptr, int num_str) {
+char* prefix_finder(char **ptr, int num_str) {
 
 	char *string1;
 	char *string2;
@@ -68,8 +68,9 @@ void prefix_finder(char **ptr, int num_str) {
 	int str_len1, str_len2;
 	char substring[100];
 	char *tmp_count;
+	
 	str_len1=str_len2=string_index=char_index=0;
-
+	tmp_count=substring;
 	while (string_index<num_str) {
 		if (string_index==0) {
 			string1=ptr[string_index];
@@ -90,6 +91,6 @@ void prefix_finder(char **ptr, int num_str) {
 	}	
 
 		printf("Longest prefix is %s \n",substring);
-
+		return substring;
 }
 
