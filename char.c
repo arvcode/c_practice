@@ -11,5 +11,6 @@ main() {
 	c[a+b]='\0';
 	printf("strlen is %d \n",strlen(c));
 	printf("%s",c);
+	free(c);
 
 }
