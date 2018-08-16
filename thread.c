@@ -24,6 +24,8 @@ int main() {
 
 	printf("&i+1 %x %p \n", &i+1, &i+1);
 
+	//printf("&(i+1) %x %p \n", &(i=i+1), &(i=i+1)); This will not work lvalue
+
 	printf(" *(i+1) %x %p \n", *(i+1), *(i+1));
 	
 	printf("i+1 %x %p \n", i+1, i+1);
