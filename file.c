@@ -6,4 +6,4 @@ gst-launch-0.10 alsasrc device=hw:5 !queue min-threshold-bytes=10000 min-thresho
 
 #su root & adb start-server
 adb devices
-
+LD_PRELOAD#
