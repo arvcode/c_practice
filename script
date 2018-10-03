@@ -1,0 +1,15 @@
+#!/bin/bash
+echo "Print process information. Kernel threads do not show PSS"
+for pid in $(ps -eo pid | awk '{print $1}'); do
+	if [ $pid = "PID" ] 
+	 then
+		continue
+	fi
+	echo Process id=$pid
+	echo
+	ps -To pid,tid,comm,rss,%cpu,pri,cls,ni,sched,vsz,%mem $pid
+	echo 
+        pmap -X $pid | echo  PSS = $(awk 'END {print$3}')KB 
+	echo --
+done
+
