@@ -1,2 +1,3 @@
 # c_practice
-geekforgeeks
+Description:
+This repository contains C practice codes for different problem sets.
